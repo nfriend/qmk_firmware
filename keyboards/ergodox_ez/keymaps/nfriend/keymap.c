@@ -54,7 +54,7 @@ enum custom_keycodes {
   HSV_120_255_128,
   HSV_240_255_255,
   DYNAMIC_MACRO_RANGE,
-
+  __PLACEHOLDER__,
   MAC_MODE,
   WINDOWS_MODE,
 };
@@ -659,14 +659,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(MAC);
         layer_off(WINDOWS);
       }
-      return true;
+      return false;
       break;
     case WINDOWS_MODE:
       if (record->event.pressed) {
         layer_on(WINDOWS);
         layer_off(MAC);
       }
-      return true;
+      return false;
       break;
   }
   return true;
