@@ -307,7 +307,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/OSM(MOD_LSFT),  _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/LT(2,KC_TAB),//
+    /**/OSM(MOD_LSFT),  _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/LT(NUMPAD,KC_TAB),
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
         /**/       /**/           /**/           /**/           /**/           /**/
@@ -617,11 +617,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         eeconfig_init();
       }
       return false;
+      break;
     case RGB_SLD:
       if (record->event.pressed) {
         rgblight_mode(1);
       }
       return false;
+      break;
     case HSV_0_255_255:
       if (record->event.pressed) {
         #ifdef RGBLIGHT_ENABLE
@@ -631,6 +633,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
       }
       return false;
+      break;
     case HSV_120_255_128:
       if (record->event.pressed) {
         #ifdef RGBLIGHT_ENABLE
@@ -640,6 +643,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
       }
       return false;
+      break;
     case HSV_240_255_255:
       if (record->event.pressed) {
         #ifdef RGBLIGHT_ENABLE
@@ -649,18 +653,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         #endif
       }
       return false;
+      break;
     case MAC_MODE:
       if (record->event.pressed) {
-        layer_off(WINDOWS);
         layer_on(MAC);
+        layer_off(WINDOWS);
       }
-      return false;
+      return true;
+      break;
     case WINDOWS_MODE:
       if (record->event.pressed) {
-        layer_off(MAC);
         layer_on(WINDOWS);
+        layer_off(MAC);
       }
-      return false;
+      return true;
+      break;
   }
   return true;
 }
