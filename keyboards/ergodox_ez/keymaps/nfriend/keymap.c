@@ -64,6 +64,12 @@ enum custom_keycodes {
   THUMBS_UP_EMOJI,
   PARTY_POPPER_EMOJI,
   ONE_HUNDRED_EMOJI,
+  ROCKET_EMOJI,
+  FACE_PALM_EMOJI,
+  OK_EMOJI,
+  POINT_UP_EMOJI,
+  PRAY_EMOJI,
+  FIRE_EMOJI,
   DYNAMIC_MACRO_RANGE, // This needs to be last!
 };
 #include "dynamic_macro.h"
@@ -915,7 +921,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/
+    /**/ _______,  /**/ _______,  /**/ OK_EMOJI,   FACE_PALM_EMOJI, ROCKET_EMOJI,   _______,  /**/ _______,  /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
@@ -923,7 +929,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/
+    /**/ _______,  /**/ _______,  /**/FIRE_EMOJI,/**/PRAY_EMOJI,  POINT_UP_EMOJI,   _______,  /**/ _______,  /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
         /**/       /**/           /**/           /**/           /**/           /**/
@@ -1143,6 +1149,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ONE_HUNDRED_EMOJI:
       if (record->event.pressed) {
         SEND_STRING(":100:");
+      }
+      return false;
+      break;
+    case ROCKET_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":rocket:");
+      }
+      return false;
+      break;
+    case FACE_PALM_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":face\\_palm:");
+      }
+      return false;
+      break;
+    case OK_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":ok\\_hand:");
+      }
+      return false;
+      break;
+    case POINT_UP_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":point\\_up\\_2:");
+      }
+      return false;
+      break;
+    case PRAY_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":pray:");
+      }
+      return false;
+      break;
+    case FIRE_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":fire:");
       }
       return false;
       break;
