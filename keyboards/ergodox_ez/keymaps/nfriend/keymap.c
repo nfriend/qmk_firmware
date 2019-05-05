@@ -60,6 +60,13 @@ enum custom_keycodes {
   HSV_240_255_255,
   MAC_MODE,
   WINDOWS_MODE,
+  HRT_EYES_EMOJI,
+  RED_HRT_EMOJI,
+  YELLOW_HRT_EMOJI,
+  GREEN_HRT_EMOJI,
+  BLUE_HRT_EMOJI,
+  PURPLE_HRT_EMOJI,
+  BLACK_HRT_EMOJI,
   SMILE_EMOJI,
   THUMBS_UP_EMOJI,
   PARTY_POPPER_EMOJI,
@@ -70,6 +77,13 @@ enum custom_keycodes {
   POINT_UP_EMOJI,
   PRAY_EMOJI,
   FIRE_EMOJI,
+  HMM_EMOJI,
+  FROWN_EMOJI,
+  EYES_EMOJI,
+  JOY_EMOJI,
+  STAR_EMOJI,
+  POOP_EMOJI,
+  PALM_TREE_EMOJI,
   DYNAMIC_MACRO_RANGE, // This needs to be last!
 };
 #include "dynamic_macro.h"
@@ -917,19 +931,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /*=========================================================================================================*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/ _______,  /**/
+    HRT_EYES_EMOJI,RED_HRT_EMOJI,YELLOW_HRT_EMOJI,GREEN_HRT_EMOJI,BLUE_HRT_EMOJI,PURPLE_HRT_EMOJI,BLACK_HRT_EMOJI,
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ _______,  /**/ OK_EMOJI,   FACE_PALM_EMOJI, ROCKET_EMOJI,   _______,  /**/ _______,  /**/
+    /**/ _______,  /**/STAR_EMOJI,/**/ HMM_EMOJI,  POINT_UP_EMOJI, FACE_PALM_EMOJI,EYES_EMOJI,  PALM_TREE_EMOJI,
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,ONE_HUNDRED_EMOJI,PARTY_POPPER_EMOJI,THUMBS_UP_EMOJI,SMILE_EMOJI,  _______,  /*===============*/
+    /**/ _______,ONE_HUNDRED_EMOJI,PARTY_POPPER_EMOJI,THUMBS_UP_EMOJI,SMILE_EMOJI, FROWN_EMOJI, /*=============*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ _______,  /**/FIRE_EMOJI,/**/PRAY_EMOJI,  POINT_UP_EMOJI,   _______,  /**/ _______,  /**/
+    /**/ _______,  /**/ OK_EMOJI, /**/FIRE_EMOJI,/**/ JOY_EMOJI,  ROCKET_EMOJI,/**/PRAY_EMOJI,/**/POOP_EMOJI,/**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
         /**/       /**/           /**/           /**/           /**/           /**/
@@ -1185,6 +1199,84 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case FIRE_EMOJI:
       if (record->event.pressed) {
         SEND_STRING(":fire:");
+      }
+      return false;
+      break;
+    case HMM_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":thinking_face:");
+      }
+      return false;
+      break;
+    case FROWN_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":slightly_frowning_face:");
+      }
+      return false;
+      break;
+    case EYES_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":eyes:");
+      }
+      return false;
+      break;
+    case JOY_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":joy:");
+      }
+      return false;
+      break;
+    case HRT_EYES_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":heart_eyes:");
+      }
+      return false;
+      break;
+    case RED_HRT_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":heart:");
+      }
+      return false;
+      break;
+    case YELLOW_HRT_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":yellow_heart:");
+      }
+      return false;
+      break;
+    case GREEN_HRT_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":green_heart:");
+      }
+      return false;
+      break;
+    case BLUE_HRT_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":blue_heart:");
+      }
+      return false;
+      break;
+    case PURPLE_HRT_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":purple_heart:");
+      }
+      return false;
+      break;
+    case BLACK_HRT_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":black_heart:");
+      }
+      return false;
+      break;
+    case POOP_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":poop:");
+      }
+      return false;
+      break;
+    case PALM_TREE_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":palm_tree:");
       }
       return false;
       break;
