@@ -1160,19 +1160,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case FACE_PALM_EMOJI:
       if (record->event.pressed) {
-        SEND_STRING(":face\\_palm:");
+        SEND_STRING(":face_palm:");
       }
       return false;
       break;
     case OK_EMOJI:
       if (record->event.pressed) {
-        SEND_STRING(":ok\\_hand:");
+        SEND_STRING(":ok_hand:");
       }
       return false;
       break;
     case POINT_UP_EMOJI:
       if (record->event.pressed) {
-        SEND_STRING(":point\\_up\\_2:");
+        SEND_STRING(":point_up_2:");
       }
       return false;
       break;
