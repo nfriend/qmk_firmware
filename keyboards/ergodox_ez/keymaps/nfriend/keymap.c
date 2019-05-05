@@ -1280,6 +1280,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case STAR_EMOJI:
+      if (record->event.pressed) {
+        SEND_STRING(":star:");
+      }
+      return false;
+      break;
   }
   return true;
 }
