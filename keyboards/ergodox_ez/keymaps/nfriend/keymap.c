@@ -52,6 +52,40 @@
 // misc
 #define MISC 14
 
+enum unicode_names {
+  POOP,
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+  [EMJ_HRT_EYES] = 0x,
+  [EMJ_HRT_RED] = 0x,
+  [EMJ_HRT_YELLOW] = 0x,
+  [EMJ_HRT_GREEN] = 0x,
+  [EMJ_HRT_BLUE] = 0x,
+  [EMJ_HRT_PURPLE] = 0x,
+  [EMJ_HRT_BLACK] = 0x,
+
+  [EMJ_STAR] = 0x,
+  [EMJ_HMM] = 0x,
+  [EMJ_POINT_UP] = 0x,
+  [EMJ_FACE_PALM] = 0x,
+  [EMJ_EYES] = 0x,
+  [EMJ_PALM_TREE] = 0x,
+  
+  [EMJ_100] = 0x,
+  [EMJ_TADA] = 0x,
+  [EMJ_THUMBS_UP] = 0x,
+  [EMJ_SMILE] = 0x,
+  [EMJ_FROWN] = 0x,
+
+  [EMJ_OK] = 0x,
+  [EMJ_FIRE] = 0x,
+  [EMJ_JOY] = 0x,
+  [EMJ_ROCKET] = 0x,
+  [EMJ_PRAY] = 0x,
+  [EMJ_POOP] = 0x1F4A9,  // 💩
+};
+
 enum custom_keycodes {
   RGB_SLD = SAFE_RANGE, // can always be here
   EPRM,
@@ -931,19 +965,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /*=========================================================================================================*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    HRT_EYES_EMOJI,RED_HRT_EMOJI,YELLOW_HRT_EMOJI,GREEN_HRT_EMOJI,BLUE_HRT_EMOJI,PURPLE_HRT_EMOJI,BLACK_HRT_EMOJI,
+  X(EMJ_HRT_EYES),X(EMJ_HRT_RED),X(EMJ_HRT_YELLOW),X(EMJ_HRT_GREEN),X(EMJ_HRT_BLUE),X(EMJ_HRT_PURPLE),X(EMJ_HRT_BLACK),
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/STAR_EMOJI,/**/ HMM_EMOJI,  POINT_UP_EMOJI, FACE_PALM_EMOJI,EYES_EMOJI,  PALM_TREE_EMOJI,
+    /**/ _______,  /**/X(EMJ_STAR),/**/ X(EMJ_HMM),  X(EMJ_POINT_UP), X(),X(),  X(),
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,ONE_HUNDRED_EMOJI,PARTY_POPPER_EMOJI,THUMBS_UP_EMOJI,SMILE_EMOJI, FROWN_EMOJI, /*=============*/
+    /**/ _______,X(),X(),X(),X(), X(), /*=============*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ OK_EMOJI, /**/FIRE_EMOJI,/**/ JOY_EMOJI,  ROCKET_EMOJI,/**/PRAY_EMOJI,/**/POOP_EMOJI,/**/
+    /**/ _______,  /**/ X(), /**/X(),/**/ X(),   X(),/**/ X(), /**/X(EMJ_POOP),///
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*=========================================================================================================*/
         /**/       /**/           /**/           /**/           /**/           /**/
@@ -1142,150 +1176,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
-    case SMILE_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":smile:");
-      }
-      return false;
-      break;
-    case THUMBS_UP_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":thumbsup:");
-      }
-      return false;
-      break;
-    case PARTY_POPPER_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":tada:");
-      }
-      return false;
-      break;
-    case ONE_HUNDRED_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":100:");
-      }
-      return false;
-      break;
-    case ROCKET_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":rocket:");
-      }
-      return false;
-      break;
-    case FACE_PALM_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":face_palm:");
-      }
-      return false;
-      break;
-    case OK_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":ok_hand:");
-      }
-      return false;
-      break;
-    case POINT_UP_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":point_up_2:");
-      }
-      return false;
-      break;
-    case PRAY_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":pray:");
-      }
-      return false;
-      break;
-    case FIRE_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":fire:");
-      }
-      return false;
-      break;
-    case HMM_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":thinking_face:");
-      }
-      return false;
-      break;
-    case FROWN_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":slightly_frowning_face:");
-      }
-      return false;
-      break;
-    case EYES_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":eyes:");
-      }
-      return false;
-      break;
-    case JOY_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":joy:");
-      }
-      return false;
-      break;
-    case HRT_EYES_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":heart_eyes:");
-      }
-      return false;
-      break;
-    case RED_HRT_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":heart:");
-      }
-      return false;
-      break;
-    case YELLOW_HRT_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":yellow_heart:");
-      }
-      return false;
-      break;
-    case GREEN_HRT_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":green_heart:");
-      }
-      return false;
-      break;
-    case BLUE_HRT_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":blue_heart:");
-      }
-      return false;
-      break;
-    case PURPLE_HRT_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":purple_heart:");
-      }
-      return false;
-      break;
-    case BLACK_HRT_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":black_heart:");
-      }
-      return false;
-      break;
-    case POOP_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":poop:");
-      }
-      return false;
-      break;
-    case PALM_TREE_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":palm_tree:");
-      }
-      return false;
-      break;
-    case STAR_EMOJI:
-      if (record->event.pressed) {
-        SEND_STRING(":star:");
-      }
-      return false;
-      break;
   }
   return true;
 }
@@ -1312,6 +1202,9 @@ uint32_t layer_state_set_user(uint32_t state) {
       ergodox_right_led_3_on();
     } else if (layer_state_is(WINDOWS)) {
       ergodox_right_led_3_on();
+      set_unicode_input_mode(UC_WINC);
+    } else if (layer_state_is(MAC)) {
+      set_unicode_input_mode(UC_OSX);
     }
 
     return state;
@@ -1324,4 +1217,7 @@ void keyboard_post_init_user(void) {
 
   // Default to Mac layout
   layer_on(MAC);
+
+  // set Unicode support to Mac mode
+  set_unicode_input_mode(UC_OSX);
 }
