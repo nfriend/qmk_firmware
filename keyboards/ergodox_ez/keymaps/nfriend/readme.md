@@ -31,3 +31,5 @@ This will create a `.build/ergodox_ez_nfriend.hex` file which can be flashed usi
 ## Developing
 
 Use the template in `./template.c` to help create new layers quickly.
+
+This layout was originally based on this EZ Configurator configuration: https://configure.ergodox-ez.com/ergodox-ez/layouts/x9MWL/latest/0
