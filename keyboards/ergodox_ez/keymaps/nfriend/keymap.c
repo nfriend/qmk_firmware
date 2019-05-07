@@ -1188,29 +1188,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
+
+    uint8_t layer = biton32(state);
+
     ergodox_board_led_off();
     ergodox_right_led_1_off();
     ergodox_right_led_2_off();
     ergodox_right_led_3_off();
 
-    if (layer_state_is(ARROWS_MAC) || layer_state_is(ARROWS_WINDOWS)) {
+    if (layer == ARROWS_MAC || layer == ARROWS_WINDOWS) {
       ergodox_right_led_1_on();
-    } else if (layer_state_is(SYMBOLS)) {
+    } else if (layer == SYMBOLS) {
       ergodox_right_led_2_on();
-    } else if (layer_state_is(NUMPAD)) {
+    } else if (layer == NUMPAD) {
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
-    } else if (layer_state_is(WM_MAC) || layer_state_is(WM_WINDOWS)) {
+    } else if (layer == WM_MAC || layer == WM_WINDOWS) {
       ergodox_right_led_2_on();
       ergodox_right_led_3_on();
-    } else if (layer_state_is(MISC)) {
+    } else if (layer == MISC) {
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
       ergodox_right_led_3_on();
-    } else if (layer_state_is(WINDOWS)) {
+    } else if (layer == WINDOWS) {
       ergodox_right_led_3_on();
       set_unicode_input_mode(UC_WINC);
-    } else if (layer_state_is(MAC)) {
+    } else if (layer == MAC) {
       set_unicode_input_mode(UC_OSX);
     }
 
