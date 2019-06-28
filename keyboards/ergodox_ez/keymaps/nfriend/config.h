@@ -6,7 +6,7 @@
 #define NO_ACTION_FUNCTION
 
 #undef DEBOUNCE
-#define DEBOUNCE 25
+#define DEBOUNCE 15
 
 #undef ONESHOT_TIMEOUT
 #define ONESHOT_TIMEOUT 1003
