@@ -1145,9 +1145,8 @@ uint32_t layer_state_set_user(uint32_t state) {
       ergodox_right_led_3_on();
     } else if (layer == WINDOWS) {
       ergodox_right_led_3_on();
-      set_unicode_input_mode(UC_WINC);
     } else if (layer == MAC) {
-      set_unicode_input_mode(UC_OSX);
+      // do nothing
     }
 
     return state;
@@ -1160,7 +1159,4 @@ void keyboard_post_init_user(void) {
 
   // Default to Mac layout
   layer_on(MAC);
-
-  // set Unicode support to Mac mode
-  set_unicode_input_mode(UC_OSX);
 }
