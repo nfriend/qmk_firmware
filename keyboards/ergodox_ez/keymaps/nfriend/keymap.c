@@ -54,6 +54,8 @@ enum custom_keycodes {
   HSV_240_255_255,
   MAC_MODE,
   WINDOWS_MODE,
+  CONSOLE_LOG,
+  ARROW_FUNCTION,
   DYNAMIC_MACRO_RANGE, // This needs to be last!
 };
 #include "dynamic_macro.h"
@@ -587,7 +589,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/           /**/           /**/           /**/
     /*===============*/           /**/           /**/
     /**/           /**/           /**/           /**/
-    /**/ _______,  /**/ _______,  /**/ _______   /**/
+    /**/ _______,  /**/ _______,  /**/ KC_0      /**/
     /**/           /**/           /**/           /**/
     /*=============================================*/
   ),
@@ -605,7 +607,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-    /**/ KC_LPRN,  /**/ KC_HASH,  /**/ KC_UNDS,  /**/ KC_LPRN,  /**/ KC_RPRN,  /**/ KC_AMPR,  /*===============*/
+    ARROW_FUNCTION,/**/ KC_HASH,  /**/ KC_UNDS,  /**/ KC_LPRN,  /**/ KC_RPRN,  /**/ KC_AMPR,  /*===============*/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
     /*==========================================================================================*/           /**/
     /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
@@ -642,7 +644,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
                 /**/           /*==========================================================================================*/
                 /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
-                /*===============*/ KC_PIPE,  /**/ KC_EQUAL, /**/ KC_QUOTE, /**/ KC_COLN,  /**/ KC_DQUO,  /**/ KC_RPRN,  /**/
+                /*===============*/ KC_PIPE,  /**/ KC_EQUAL, /**/ KC_QUOTE, /**/ KC_COLN,  /**/ KC_DQUO,  /**/CONSOLE_LOG,///
                 /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
                 /**/           /*==========================================================================================*/
                 /**/           /**/           /**/           /**/           /**/           /**/           /**/           /**/
@@ -1035,6 +1037,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_off(MAC);
       }
       return false;
+      break;
+    case CONSOLE_LOG:
+      if (record->event.pressed) {
+        SEND_STRING("console.log('')"SS_TAP(X_LEFT)SS_TAP(X_LEFT));
+      }
+      break;
+    case ARROW_FUNCTION:
+      if (record->event.pressed) {
+        SEND_STRING("() => {}"SS_TAP(X_LEFT)SS_TAP(X_ENTER));
+      }
       break;
   }
   return true;
