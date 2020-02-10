@@ -58,7 +58,6 @@ enum custom_keycodes {
   ARROW_FUNCTION,
   DYNAMIC_MACRO_RANGE, // This needs to be last!
 };
-#include "dynamic_macro.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -978,9 +977,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 bool suspended = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (!process_record_dynamic_macro(keycode, record)) {
-    return false;
-  }
   switch (keycode) {
     case EPRM:
       if (record->event.pressed) {
