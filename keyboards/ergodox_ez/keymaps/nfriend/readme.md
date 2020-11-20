@@ -1,6 +1,6 @@
 # [nfriend](https://gitlab.com/nfriend)'s ErgoDox EZ configuration
 
-![nfriend's ErgoDox EZ keymap](https://i.imgur.com/CMMmdBc.png)
+![nfriend's ErgoDox EZ keymap](https://i.imgur.com/WFQHooY.png)
 
 [View this keymap on
 keyboard-layout-editor.com.](http://www.keyboard-layout-editor.com/#/gists/01283b322a647c96ef75955a9b0bac68)
